@@ -1,3 +1,3 @@
-function halo(){
-    alert("Halo, GitHub! 🚀");
+function hello() {
+    alert("Hello, GitHub! 🚀");
 }
