@@ -132,3 +132,59 @@ nav a:hover{
 html{
     scroll-behavior:smooth;
 }
+.projects{
+
+    margin:70px auto;
+
+    text-align:center;
+
+}
+.project-card{
+
+    background:white;
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+.project-card h3{
+
+    color:#2563eb;
+
+}
+.project-card p{
+
+    margin:20px 0;
+
+}
+.project-card a{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+.project-card a:hover{
+
+    background:#1d4ed8;
+
+    transform:scale(1.05);
+
+}
