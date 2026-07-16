@@ -130,7 +130,15 @@ nav a:hover{
 html{
     scroll-behavior:smooth;
 }
-
+.projects{
+    max-width:800px;
+    margin:60px auto;
+    padding:60px 30px;
+    text-align:center;
+    background:white;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
 .project-card{
 
     background:white;
