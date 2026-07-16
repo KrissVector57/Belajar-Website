@@ -69,7 +69,7 @@ function type() {
 
     }
 
-    setTimeout(type,isDeleting?50:100);
+    setTimeout(type, isDeleting ? 60 : 120);
 
 }
 
