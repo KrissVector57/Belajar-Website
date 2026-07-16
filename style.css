@@ -148,6 +148,13 @@ nav a{
     transition:0.3s;
 
 }
+nav a.active{
+    color:#ffe600;
+    font-weight:bold;
+    border-bottom:3px solid #ffe600;
+    padding-bottom:5px;
+    transition:0.3s;
+}
 nav a:hover{
 
     text-decoration:underline;
@@ -159,6 +166,11 @@ nav a.active{
     border-bottom:3px solid #ffe600;
     padding-bottom:5px;
     transition:0.3s;
+}
+nav a:hover{
+
+    text-decoration:underline;
+
 }
 html{
     scroll-behavior:smooth;
