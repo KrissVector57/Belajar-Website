@@ -19,3 +19,21 @@ header h1{
 header p{
     font-size:20px;
 }
+.about{
+    background:white;
+    max-width:800px;
+    margin:40px auto;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.about h2{
+    text-align:center;
+    color:#2563eb;
+}
+
+.about p{
+    line-height:1.8;
+    text-align:center;
+}
