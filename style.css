@@ -205,3 +205,17 @@ html{
     }
 
 }
+/* ===== Footer ===== */
+
+footer {
+    background: #1f4fd6;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 8px 0;
+    font-size: 16px;
+}
