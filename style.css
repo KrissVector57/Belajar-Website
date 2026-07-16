@@ -236,9 +236,24 @@ footer p {
     color:white;
 }
 
+.dark-mode{
+    background:#1f1f1f;
+    color:white;
+}
+
 .dark-mode section{
+    background:transparent;
+}
+
+.dark-mode .about,
+.dark-mode .project-card{
     background:#2b2b2b;
     color:white;
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+.dark-mode footer{
+    background:#111;
 }
 
 .dark-mode footer{
