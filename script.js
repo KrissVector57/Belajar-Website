@@ -24,11 +24,28 @@ document.querySelectorAll("nav a").forEach(link => {
 });
 
 // Dark Mode
+// =========================
+// DARK MODE
+// =========================
+
 const button = document.getElementById("darkModeBtn");
+
+// Cek apakah sebelumnya user memilih dark mode
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+}
 
 if (button) {
     button.onclick = function () {
+
         document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+
     };
 }
 const texts = [
