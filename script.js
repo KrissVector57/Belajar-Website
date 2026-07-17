@@ -1,23 +1,36 @@
 // Smooth Scroll
 document.querySelectorAll("nav a").forEach(link => {
     link.addEventListener("click", function (e) {
-        e.preventDefault();
 
-        const target = document.querySelector(this.getAttribute("href"));
+        const href = this.getAttribute("href");
 
-        target.scrollIntoView({
-            behavior: "smooth"
-        });
+        // Kalau link menuju section (#about, #skills)
+        if (href.startsWith("#")) {
+
+            e.preventDefault();
+
+            const target = document.querySelector(href);
+
+            if (target) {
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+
+        }
+
+        // Kalau href bukan "#", biarkan browser pindah halaman
     });
 });
-
 
 // Dark Mode
 const button = document.getElementById("darkModeBtn");
 
-button.onclick = function () {
-    document.body.classList.toggle("dark-mode");
-};
+if (button) {
+    button.onclick = function () {
+        document.body.classList.toggle("dark-mode");
+    };
+}
 const texts = [
     "Future Software Developer",
     "Future Web Developer",
@@ -33,8 +46,9 @@ let isDeleting = false;
 
 const typingElement = document.getElementById("typing");
 
-function type() {
-
+if (typingElement) {
+    type();
+}
     const currentText = texts[textIndex];
 
     if (!isDeleting) {
@@ -71,11 +85,12 @@ function type() {
 
     setTimeout(type, isDeleting ? 60 : 120);
 
-}
 
 type();
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
+
+if (sections.length > 0) {
 
 window.addEventListener("scroll", () => {
 
@@ -86,9 +101,7 @@ window.addEventListener("scroll", () => {
         const sectionTop = section.offsetTop - 150;
 
         if (window.scrollY >= sectionTop) {
-
             current = section.getAttribute("id");
-
         }
 
     });
@@ -98,11 +111,11 @@ window.addEventListener("scroll", () => {
         link.classList.remove("active");
 
         if (link.getAttribute("href") === "#" + current) {
-
             link.classList.add("active");
-
         }
 
     });
 
 });
+
+}
