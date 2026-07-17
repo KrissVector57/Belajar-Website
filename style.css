@@ -322,3 +322,17 @@ body.dark-mode .projects h3 {
 body.dark-mode .projects p {
     color: #ddd;
 }
+.back-btn {
+    display: inline-block;
+    margin: 30px;
+    padding: 10px 20px;
+    background: #3366e6;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    opacity: 0.8;
+}
