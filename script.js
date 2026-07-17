@@ -87,9 +87,11 @@ if (typingElement) {
 
             if (charIndex === currentText.length) {
                 isDeleting = true;
-                setTimeout(type, 3500);
+                setTimeout(type, 2500);
                 return;
             }
+
+            setTimeout(type, 180);
 
         } else {
 
@@ -100,10 +102,8 @@ if (typingElement) {
                 isDeleting = false;
                 textIndex = (textIndex + 1) % texts.length;
             }
-
+            setTimeout(type, 80);
         }
-
-        setTimeout(type, isDeleting ? 60 : 180);
     }
 
     type();
