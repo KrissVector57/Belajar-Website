@@ -47,44 +47,50 @@ let isDeleting = false;
 const typingElement = document.getElementById("typing");
 
 if (typingElement) {
-    type();
-}
-    const currentText = texts[textIndex];
 
-    if (!isDeleting) {
+    const texts = [
+        "Future Software Developer",
+        "Future Web Developer",
+        "Future Front-End Developer",
+        "Always Learning New Things"
+    ];
 
-        typingElement.textContent = currentText.substring(0, charIndex + 1);
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
-        charIndex++;
+    function type() {
 
-        if (charIndex === currentText.length){
+        const currentText = texts[textIndex];
 
-            isDeleting = true;
+        if (!isDeleting) {
 
-            setTimeout(type,1500);
+            typingElement.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
 
-            return;
+            if (charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(type, 1500);
+                return;
+            }
+
+        } else {
+
+            typingElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+
+            if (charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
 
         }
 
-    }else{
-
-        typingElement.textContent = currentText.substring(0,charIndex - 1);
-
-        charIndex--;
-
-        if(charIndex===0){
-
-            isDeleting=false;
-
-            textIndex=(textIndex+1)%texts.length;
-
-        }
-
+        setTimeout(type, isDeleting ? 60 : 120);
     }
 
-    setTimeout(type, isDeleting ? 60 : 120);
-
+    type();
+}
 
 type();
 const sections = document.querySelectorAll("section");
