@@ -78,7 +78,7 @@ if (typingElement) {
                 return;
             }
 
-            setTimeout(type, 180);
+            setTimeout(type, 120);
 
         } else {
 
