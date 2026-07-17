@@ -103,7 +103,7 @@ if (typingElement) {
 
         }
 
-        setTimeout(type, isDeleting ? 30 : 100);
+        setTimeout(type, isDeleting ? 60 : 190);
     }
 
     type();
