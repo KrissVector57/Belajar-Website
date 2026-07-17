@@ -48,19 +48,6 @@ if (button) {
 
     };
 }
-const texts = [
-    "Future Software Developer",
-    "Future Web Developer",
-    "Future Front-End Developer",
-    "Always Learning New Things"
-];
-
-
-//typing effect
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
 const typingElement = document.getElementById("typing");
 
 if (typingElement) {
@@ -105,8 +92,6 @@ if (typingElement) {
             setTimeout(type, 80);
         }
     }
-
-    type();
 }
 
 type();
