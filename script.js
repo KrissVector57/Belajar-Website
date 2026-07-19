@@ -1,76 +1,18 @@
 // ========================================
-// SMOOTH SCROLL
-// ========================================
-
-document
-    .querySelectorAll("nav a")
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            function (e) {
-
-                const href =
-                    this.getAttribute("href");
-
-
-                // Hanya smooth scroll
-                // untuk link section
-
-                if (
-                    href &&
-                    href.startsWith("#")
-                ) {
-
-                    e.preventDefault();
-
-
-                    const target =
-                        document.querySelector(
-                            href
-                        );
-
-
-                    if (target) {
-
-                        target.scrollIntoView({
-
-                            behavior:
-                                "smooth"
-
-                        });
-
-                    }
-
-                }
-
-            }
-
-        );
-
-    });
-
-
-// ========================================
 // DARK MODE
 // ========================================
 
 const darkModeButton =
-    document.getElementById(
-        "darkModeBtn"
-    );
+    document.getElementById("darkModeBtn");
 
 
 // Cek tema yang tersimpan
 
 if (
-    localStorage.getItem("theme")
-    === "dark"
+    localStorage.getItem("theme") === "dark"
 ) {
 
-    document.body.classList.add(
-        "dark-mode"
-    );
+    document.body.classList.add("dark-mode");
 
 }
 
@@ -83,13 +25,10 @@ if (darkModeButton) {
         "click",
         function () {
 
-
             document.body.classList.toggle(
                 "dark-mode"
             );
 
-
-            // Simpan tema
 
             if (
                 document.body.classList.contains(
@@ -112,10 +51,58 @@ if (darkModeButton) {
             }
 
         }
-
     );
 
 }
+
+
+// ========================================
+// SMOOTH SCROLL
+// ========================================
+
+document
+    .querySelectorAll("nav a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            function (e) {
+
+                const href =
+                    this.getAttribute("href");
+
+
+                // Hanya smooth scroll
+                // untuk link #
+
+                if (
+                    href &&
+                    href.startsWith("#")
+                ) {
+
+                    e.preventDefault();
+
+
+                    const target =
+                        document.querySelector(
+                            href
+                        );
+
+
+                    if (target) {
+
+                        target.scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                    }
+
+                }
+
+            }
+        );
+
+    });
 
 
 // ========================================
@@ -123,13 +110,10 @@ if (darkModeButton) {
 // ========================================
 
 const typingElement =
-    document.getElementById(
-        "typing"
-    );
+    document.getElementById("typing");
 
 
 if (typingElement) {
-
 
     const texts = [
 
@@ -151,34 +135,22 @@ if (typingElement) {
     let isDeleting = false;
 
 
-    // Kecepatan mengetik
-
     const typingSpeed = 180;
 
-
-    // Kecepatan menghapus
-
     const deletingSpeed = 80;
-
-
-    // Jeda setelah selesai mengetik
 
     const pauseTime = 2500;
 
 
     function type() {
 
-
         const currentText =
             texts[textIndex];
 
 
-        // ================================
         // MENGETIK
-        // ================================
 
         if (!isDeleting) {
-
 
             typingElement.textContent =
                 currentText.substring(
@@ -186,17 +158,13 @@ if (typingElement) {
                     charIndex + 1
                 );
 
-
             charIndex++;
 
-
-            // Kalau selesai mengetik
 
             if (
                 charIndex ===
                 currentText.length
             ) {
-
 
                 isDeleting = true;
 
@@ -217,16 +185,12 @@ if (typingElement) {
                 typingSpeed
             );
 
-
         }
 
 
-        // ================================
         // MENGHAPUS
-        // ================================
 
         else {
-
 
             typingElement.textContent =
                 currentText.substring(
@@ -234,26 +198,19 @@ if (typingElement) {
                     charIndex - 1
                 );
 
-
             charIndex--;
 
-
-            // Kalau selesai menghapus
 
             if (
                 charIndex === 0
             ) {
 
-
                 isDeleting = false;
 
 
                 textIndex =
-                    (
-                        textIndex + 1
-                    )
-                    %
-                    texts.length;
+                    (textIndex + 1)
+                    % texts.length;
 
             }
 
@@ -268,8 +225,6 @@ if (typingElement) {
     }
 
 
-    // Mulai typing
-
     type();
 
 }
@@ -280,33 +235,26 @@ if (typingElement) {
 // ========================================
 
 const sections =
-    document.querySelectorAll(
-        "section"
-    );
+    document.querySelectorAll("section");
 
 
 const navLinks =
-    document.querySelectorAll(
-        "nav a"
-    );
+    document.querySelectorAll("nav a");
 
 
 if (
     sections.length > 0
 ) {
 
-
     window.addEventListener(
         "scroll",
         function () {
-
 
             let current = "";
 
 
             sections.forEach(
                 section => {
-
 
                     const sectionTop =
                         section.offsetTop
@@ -317,7 +265,6 @@ if (
                         window.scrollY
                         >= sectionTop
                     ) {
-
 
                         current =
                             section.getAttribute(
@@ -333,7 +280,6 @@ if (
             navLinks.forEach(
                 link => {
 
-
                     link.classList.remove(
                         "active"
                     );
@@ -347,7 +293,6 @@ if (
                         "#" + current
                     ) {
 
-
                         link.classList.add(
                             "active"
                         );
@@ -358,7 +303,61 @@ if (
             );
 
         }
-
     );
 
 }
+
+
+// ========================================
+// SCROLL REVEAL
+// ========================================
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+function revealOnScroll() {
+
+    revealElements.forEach(
+        element => {
+
+            const elementTop =
+                element.getBoundingClientRect()
+                    .top;
+
+
+            const windowHeight =
+                window.innerHeight;
+
+
+            if (
+                elementTop <
+                windowHeight - 80
+            ) {
+
+                element.classList.add(
+                    "show"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// Jalankan langsung
+// saat halaman dibuka
+
+revealOnScroll();
+
+
+// Jalankan saat scroll
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
