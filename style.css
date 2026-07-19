@@ -351,3 +351,17 @@ body.dark-mode .projects p {
     background:#244bc7;
     transform:translateY(-3px);
 }
+/* ========================================
+   SCROLL REVEAL ANIMATION
+======================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}

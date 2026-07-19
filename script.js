@@ -127,3 +127,36 @@ window.addEventListener("scroll", () => {
 });
 
 }
+// ========================================
+// SCROLL REVEAL
+// ========================================
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+
+    revealElements.forEach(element => {
+
+        const elementTop =
+            element.getBoundingClientRect().top;
+
+        const windowHeight =
+            window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+
+            element.classList.add("show");
+
+        }
+
+    });
+
+}
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+revealOnScroll();
