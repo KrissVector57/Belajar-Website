@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Projects - Kriss Portfolio</title>
 
     <link rel="stylesheet" href="../style.css">
 </head>
-<script>
-if(localStorage.getItem("theme") === "dark"){
-    document.body.classList.add("dark-mode");
-}
-</script>
+
 <body>
 
-    <a href="../index.html" class="back-btn">← Back to Home</a>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    </script>
+
+    <a href="../index.html" class="back-btn">
+        ← Back to Home
+    </a>
 
     <section class="projects reveal">
+
         <h2>My Projects</h2>
 
         <div class="project-card">
+
             <h3>Portfolio Website</h3>
 
             <p>
@@ -27,12 +35,19 @@ if(localStorage.getItem("theme") === "dark"){
                 HTML, CSS, Git, and GitHub.
             </p>
 
-             <a href="https://github.com/KrissVector57" target="_blank">
+            <a
+                href="https://github.com/KrissVector57"
+                target="_blank"
+            >
                 View GitHub
             </a>
+
         </div>
+
     </section>
 
     <script src="../script.js"></script>
+
 </body>
+
 </html>
