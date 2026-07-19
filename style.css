@@ -4,35 +4,37 @@ body{
     background:#f4f4f4;
 }
 
-header{
-    background:#2563eb;
-    color:white;
-    text-align:center;
-    padding:70px;
-
-    #typing::after{
-    content:"|";
-    animation:blink 0.8s infinite;
-}
+header {
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 70px;
     font-size: 2rem;
     font-weight: 500;
     min-height: 40px;
-
-    @keyframes blink{
-
-    0%{
-        opacity:1;
-    }
-
-    50%{
-        opacity:0;
-    }
-
-    100%{
-        opacity:1;
-    }
-
 }
+
+
+#typing::after {
+    content: "|";
+    animation: blink 0.8s infinite;
+}
+
+
+@keyframes blink {
+
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }
 
 header h1{
@@ -350,18 +352,4 @@ body.dark-mode .projects p {
 .btn:hover{
     background:#244bc7;
     transform:translateY(-3px);
-}
-/* ========================================
-   SCROLL REVEAL ANIMATION
-======================================== */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
 }

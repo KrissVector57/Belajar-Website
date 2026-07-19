@@ -1,162 +1,364 @@
-// Smooth Scroll
-document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", function (e) {
+// ========================================
+// SMOOTH SCROLL
+// ========================================
 
-        const href = this.getAttribute("href");
+document
+    .querySelectorAll("nav a")
+    .forEach(link => {
 
-        // Kalau link menuju section (#about, #skills)
-        if (href.startsWith("#")) {
+        link.addEventListener(
+            "click",
+            function (e) {
 
-            e.preventDefault();
+                const href =
+                    this.getAttribute("href");
 
-            const target = document.querySelector(href);
 
-            if (target) {
-                target.scrollIntoView({
-                    behavior: "smooth"
-                });
+                // Hanya smooth scroll
+                // untuk link section
+
+                if (
+                    href &&
+                    href.startsWith("#")
+                ) {
+
+                    e.preventDefault();
+
+
+                    const target =
+                        document.querySelector(
+                            href
+                        );
+
+
+                    if (target) {
+
+                        target.scrollIntoView({
+
+                            behavior:
+                                "smooth"
+
+                        });
+
+                    }
+
+                }
+
+            }
+
+        );
+
+    });
+
+
+// ========================================
+// DARK MODE
+// ========================================
+
+const darkModeButton =
+    document.getElementById(
+        "darkModeBtn"
+    );
+
+
+// Cek tema yang tersimpan
+
+if (
+    localStorage.getItem("theme")
+    === "dark"
+) {
+
+    document.body.classList.add(
+        "dark-mode"
+    );
+
+}
+
+
+// Tombol Dark Mode
+
+if (darkModeButton) {
+
+    darkModeButton.addEventListener(
+        "click",
+        function () {
+
+
+            document.body.classList.toggle(
+                "dark-mode"
+            );
+
+
+            // Simpan tema
+
+            if (
+                document.body.classList.contains(
+                    "dark-mode"
+                )
+            ) {
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+            } else {
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
             }
 
         }
 
-        // Kalau href bukan "#", biarkan browser pindah halaman
-    });
-});
+    );
 
-// Dark Mode
-// =========================
-// DARK MODE
-// =========================
-
-const button = document.getElementById("darkModeBtn");
-
-// Cek apakah sebelumnya user memilih dark mode
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
 }
 
-if (button) {
-    button.onclick = function () {
 
-        document.body.classList.toggle("dark-mode");
+// ========================================
+// TYPING EFFECT
+// ========================================
 
-        if (document.body.classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-        } else {
-            localStorage.setItem("theme", "light");
-        }
+const typingElement =
+    document.getElementById(
+        "typing"
+    );
 
-    };
-}
-const typingElement = document.getElementById("typing");
 
 if (typingElement) {
 
+
     const texts = [
+
         "Future Software Developer",
+
         "Future Web Developer",
+
         "Future Front-End Developer",
+
         "Always Learning New Things"
+
     ];
 
+
     let textIndex = 0;
+
     let charIndex = 0;
+
     let isDeleting = false;
+
+
+    // Kecepatan mengetik
+
+    const typingSpeed = 180;
+
+
+    // Kecepatan menghapus
+
+    const deletingSpeed = 80;
+
+
+    // Jeda setelah selesai mengetik
+
+    const pauseTime = 2500;
+
 
     function type() {
 
-        const currentText = texts[textIndex];
+
+        const currentText =
+            texts[textIndex];
+
+
+        // ================================
+        // MENGETIK
+        // ================================
 
         if (!isDeleting) {
 
-            typingElement.textContent = currentText.substring(0, charIndex + 1);
+
+            typingElement.textContent =
+                currentText.substring(
+                    0,
+                    charIndex + 1
+                );
+
+
             charIndex++;
 
-            if (charIndex === currentText.length) {
+
+            // Kalau selesai mengetik
+
+            if (
+                charIndex ===
+                currentText.length
+            ) {
+
+
                 isDeleting = true;
-                setTimeout(type, 2000);
+
+
+                setTimeout(
+                    type,
+                    pauseTime
+                );
+
+
                 return;
+
             }
 
-            setTimeout(type, 120);
 
-        } else {
+            setTimeout(
+                type,
+                typingSpeed
+            );
 
-            typingElement.textContent = currentText.substring(0, charIndex - 1);
+
+        }
+
+
+        // ================================
+        // MENGHAPUS
+        // ================================
+
+        else {
+
+
+            typingElement.textContent =
+                currentText.substring(
+                    0,
+                    charIndex - 1
+                );
+
+
             charIndex--;
 
-            if (charIndex === 0) {
+
+            // Kalau selesai menghapus
+
+            if (
+                charIndex === 0
+            ) {
+
+
                 isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
+
+
+                textIndex =
+                    (
+                        textIndex + 1
+                    )
+                    %
+                    texts.length;
+
             }
-            setTimeout(type, 80);
+
+
+            setTimeout(
+                type,
+                deletingSpeed
+            );
+
         }
+
     }
-}
 
-type();
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
 
-if (sections.length > 0) {
+    // Mulai typing
 
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-
-    });
-
-});
+    type();
 
 }
+
+
 // ========================================
-// SCROLL REVEAL
+// ACTIVE NAVBAR
 // ========================================
 
-const revealElements =
-    document.querySelectorAll(".reveal");
+const sections =
+    document.querySelectorAll(
+        "section"
+    );
 
-function revealOnScroll() {
 
-    revealElements.forEach(element => {
+const navLinks =
+    document.querySelectorAll(
+        "nav a"
+    );
 
-        const elementTop =
-            element.getBoundingClientRect().top;
 
-        const windowHeight =
-            window.innerHeight;
+if (
+    sections.length > 0
+) {
 
-        if (elementTop < windowHeight - 100) {
 
-            element.classList.add("show");
+    window.addEventListener(
+        "scroll",
+        function () {
+
+
+            let current = "";
+
+
+            sections.forEach(
+                section => {
+
+
+                    const sectionTop =
+                        section.offsetTop
+                        - 150;
+
+
+                    if (
+                        window.scrollY
+                        >= sectionTop
+                    ) {
+
+
+                        current =
+                            section.getAttribute(
+                                "id"
+                            );
+
+                    }
+
+                }
+            );
+
+
+            navLinks.forEach(
+                link => {
+
+
+                    link.classList.remove(
+                        "active"
+                    );
+
+
+                    if (
+                        link.getAttribute(
+                            "href"
+                        )
+                        ===
+                        "#" + current
+                    ) {
+
+
+                        link.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
 
         }
 
-    });
+    );
 
 }
-
-window.addEventListener(
-    "scroll",
-    revealOnScroll
-);
-
-revealOnScroll();
