@@ -2,6 +2,14 @@
    GLOBAL
 ======================================== */
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -19,7 +27,7 @@ header {
     background: #2563eb;
     color: white;
     text-align: center;
-    padding: 70px;
+    padding: 70px 20px;
     min-height: 40px;
 }
 
@@ -75,13 +83,18 @@ header p {
 
 nav {
     margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 15px;
+    margin: 5px 15px;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -107,6 +120,7 @@ nav a.active {
 .about {
     background: white;
     max-width: 800px;
+    width: calc(100% - 40px);
     margin: 40px auto;
     padding: 30px;
     border-radius: 15px;
@@ -133,12 +147,14 @@ nav a.active {
 .skills {
     text-align: center;
     margin-top: 60px;
+    padding: 0 20px;
 }
 
 
 .skill-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     flex-wrap: wrap;
     margin-top: 30px;
@@ -169,6 +185,7 @@ nav a.active {
 
 .contact {
     max-width: 800px;
+    width: calc(100% - 40px);
     margin: 60px auto;
     padding: 60px 30px;
     background: #3366e8;
@@ -186,6 +203,7 @@ nav a.active {
 
 .contact p {
     margin: 10px;
+    word-wrap: break-word;
 }
 
 
@@ -195,6 +213,7 @@ nav a.active {
 
 .projects {
     max-width: 800px;
+    width: calc(100% - 40px);
     margin: 60px auto;
     padding: 60px 30px;
     text-align: center;
@@ -207,6 +226,7 @@ nav a.active {
 .project-card {
     background: white;
     max-width: 700px;
+    width: 100%;
     margin: auto;
     padding: 30px;
     border-radius: 15px;
@@ -221,6 +241,7 @@ nav a.active {
 
 .project-card p {
     margin: 20px 0;
+    line-height: 1.6;
 }
 
 
@@ -295,6 +316,12 @@ footer p {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    transition: 0.3s;
+}
+
+
+#darkModeBtn:hover {
+    transform: scale(1.05);
 }
 
 
@@ -364,31 +391,163 @@ body.dark-mode footer {
 
 
 /* ========================================
-   RESPONSIVE
+   TABLET
 ======================================== */
 
 @media (max-width: 768px) {
 
+    header {
+        padding: 60px 20px;
+    }
+
+
     header h1 {
-        font-size: 50px;
+        font-size: 42px;
+    }
+
+
+    #typing {
+        font-size: 1.6rem;
+    }
+
+
+    nav {
+        gap: 5px;
     }
 
 
     nav a {
-        display: block;
-        margin: 15px;
+        margin: 5px 10px;
     }
 
 
-    .about,
-    .projects,
+    .about {
+        padding: 25px;
+    }
+
+
     .contact {
-        width: 80%;
+        padding: 50px 25px;
+    }
+
+
+    .projects {
+        padding: 50px 25px;
+    }
+
+
+    .skill-card {
+        padding: 18px 30px;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 45px 15px;
+    }
+
+
+    header h1 {
+        font-size: 36px;
+    }
+
+
+    #typing {
+        font-size: 1.25rem;
+        min-height: 30px;
+    }
+
+
+    nav {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+
+    nav a {
+        margin: 0;
+    }
+
+
+    .about {
+        width: calc(100% - 30px);
+        margin: 30px auto;
+        padding: 25px 20px;
+    }
+
+
+    .about p {
+        text-align: left;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    .skills {
+        margin-top: 45px;
+        padding: 0 15px;
+    }
+
+
+    .skill-container {
+        gap: 15px;
+    }
+
+
+    .skill-card {
+        width: 100%;
+        padding: 18px;
+    }
+
+
+    .contact {
+        width: calc(100% - 30px);
+        margin: 30px auto;
+        padding: 40px 20px;
+        border-radius: 20px;
+    }
+
+
+    .projects {
+        width: calc(100% - 30px);
+        margin: 30px auto;
+        padding: 40px 20px;
+        border-radius: 20px;
     }
 
 
     .project-card {
-        width: auto;
+        padding: 25px 20px;
+    }
+
+
+    .project-card a {
+        width: 100%;
+        padding: 12px 15px;
+    }
+
+
+    .back-btn {
+        margin: 20px 15px;
+    }
+
+
+    footer {
+        padding: 25px 15px;
+    }
+
+
+    footer p {
+        font-size: 14px;
+        line-height: 1.6;
     }
 
 }
