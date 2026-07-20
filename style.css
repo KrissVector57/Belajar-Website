@@ -15,7 +15,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #f4f4f4;
     color: #222;
-    transition: background 0.3s ease, color 0.3s ease;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 
@@ -27,13 +30,16 @@ header {
     background: #2563eb;
     color: white;
     text-align: center;
+
     padding: 70px 20px;
+
     min-height: 40px;
 }
 
 
 header h1 {
     margin: 0;
+
     font-size: 48px;
 }
 
@@ -50,13 +56,16 @@ header p {
 #typing {
     font-size: 2rem;
     font-weight: 500;
+
     min-height: 40px;
 }
 
 
 #typing::after {
     content: "|";
-    animation: blink 0.8s infinite;
+
+    animation:
+        blink 0.8s infinite;
 }
 
 
@@ -78,7 +87,7 @@ header p {
 
 
 /* ========================================
-   NAVBAR
+   NAVIGATION
 ======================================== */
 
 nav {
@@ -266,7 +275,7 @@ nav a.active {
 ======================================== */
 
 .projects {
-    max-width: 800px;
+    max-width: 1000px;
 
     width: calc(100% - 40px);
 
@@ -286,14 +295,38 @@ nav a.active {
 }
 
 
+.projects h2 {
+    margin-top: 0;
+
+    margin-bottom: 40px;
+
+    color: #2563eb;
+}
+
+
+/* ========================================
+   PROJECT CONTAINER
+======================================== */
+
+.project-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+}
+
+
+/* ========================================
+   PROJECT CARD
+======================================== */
+
 .project-card {
+
     background: white;
-
-    max-width: 700px;
-
-    width: 100%;
-
-    margin: auto;
 
     padding: 30px;
 
@@ -302,22 +335,55 @@ nav a.active {
     box-shadow:
         0 5px 15px
         rgba(0, 0, 0, 0.15);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.project-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.2);
 }
 
 
 .project-card h3 {
+
     color: #2563eb;
+
+    margin-top: 0;
+
+    font-size: 22px;
 }
 
 
 .project-card p {
-    margin: 20px 0;
+
+    margin:
+        10px 0 25px;
 
     line-height: 1.6;
 }
 
 
-.project-card a {
+/* ========================================
+   PROJECT BUTTON
+======================================== */
+
+.project-card .btn {
+
     display: inline-block;
 
     background: #2563eb;
@@ -331,13 +397,17 @@ nav a.active {
     border-radius: 10px;
 
     transition: 0.3s;
+
+    margin-top: auto;
 }
 
 
-.project-card a:hover {
+.project-card .btn:hover {
+
     background: #1d4ed8;
 
-    transform: scale(1.05);
+    transform:
+        scale(1.05);
 }
 
 
@@ -346,6 +416,7 @@ nav a.active {
 ======================================== */
 
 .back-btn {
+
     display: inline-block;
 
     margin: 30px;
@@ -367,6 +438,7 @@ nav a.active {
 
 
 .back-btn:hover {
+
     opacity: 0.8;
 
     transform:
@@ -375,10 +447,44 @@ nav a.active {
 
 
 /* ========================================
+   GENERAL BUTTON
+======================================== */
+
+.btn {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 15px 35px;
+
+    background: #3564e8;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+}
+
+
+.btn:hover {
+
+    background: #244bc7;
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* ========================================
    FOOTER
 ======================================== */
 
 footer {
+
     background: #1f4fd6;
 
     color: white;
@@ -392,6 +498,7 @@ footer {
 
 
 footer p {
+
     margin: 8px 0;
 
     font-size: 16px;
@@ -403,6 +510,7 @@ footer p {
 ======================================== */
 
 #darkModeBtn {
+
     margin-top: 20px;
 
     padding: 12px 24px;
@@ -422,7 +530,9 @@ footer p {
 
 
 #darkModeBtn:hover {
-    transform: scale(1.05);
+
+    transform:
+        scale(1.05);
 }
 
 
@@ -431,14 +541,17 @@ footer p {
 ======================================== */
 
 body.dark-mode {
+
     background: #1f1f1f;
 
     color: white;
 }
 
 
-body.dark-mode .about,
-body.dark-mode .projects {
+/* About */
+
+body.dark-mode .about {
+
     background: #2b2b2b;
 
     color: white;
@@ -449,32 +562,65 @@ body.dark-mode .projects {
 }
 
 
-body.dark-mode .project-card {
-    background: #333;
-
-    color: white;
-}
-
+/* Contact */
 
 body.dark-mode .contact {
+
     background: #2d2d2d;
 
     color: white;
 }
 
 
+/* Projects */
+
+body.dark-mode .projects {
+
+    background: #2d2d2d;
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.4);
+}
+
+
+/* Project Cards */
+
+body.dark-mode .project-card {
+
+    background: #333;
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.4);
+}
+
+
+/* Project Titles */
+
 body.dark-mode .projects h2,
-body.dark-mode .projects h3 {
+body.dark-mode .project-card h3 {
+
     color: #4d7cff;
 }
 
 
+/* Project Text */
+
 body.dark-mode .projects p {
+
     color: #ddd;
 }
 
 
+/* Footer */
+
 body.dark-mode footer {
+
     background: #111;
 }
 
@@ -484,18 +630,22 @@ body.dark-mode footer {
 ======================================== */
 
 .reveal {
+
     opacity: 0;
 
     transform:
         translateY(40px);
 
     transition:
+
         opacity 0.8s ease,
+
         transform 0.8s ease;
 }
 
 
 .reveal.show {
+
     opacity: 1;
 
     transform:
@@ -510,25 +660,26 @@ body.dark-mode footer {
 @media (max-width: 768px) {
 
     header {
-        padding: 60px 15px;
+
+        padding:
+            60px 15px;
     }
 
 
     header h1 {
+
         font-size: 42px;
     }
 
 
     #typing {
+
         font-size: 1.6rem;
     }
 
 
-    /*
-    Navbar tetap horizontal
-    */
-
     nav {
+
         display: flex;
 
         flex-direction: row;
@@ -544,29 +695,39 @@ body.dark-mode footer {
 
 
     nav a {
-        margin: 5px 8px;
+
+        margin:
+            5px 8px;
 
         font-size: 14px;
     }
 
 
     .about {
-        padding: 25px;
+
+        padding:
+            25px;
     }
 
 
     .contact {
-        padding: 50px 25px;
+
+        padding:
+            50px 25px;
     }
 
 
     .projects {
-        padding: 50px 25px;
+
+        padding:
+            50px 25px;
     }
 
 
     .skill-card {
-        padding: 18px 30px;
+
+        padding:
+            18px 30px;
     }
 
 }
@@ -579,27 +740,30 @@ body.dark-mode footer {
 @media (max-width: 480px) {
 
     header {
-        padding: 40px 10px;
+
+        padding:
+            40px 10px;
     }
 
 
     header h1 {
+
         font-size: 34px;
     }
 
 
     #typing {
+
         font-size: 1rem;
 
         min-height: 25px;
     }
 
 
-    /*
-    Navbar tetap horizontal
-    */
+    /* Navbar tetap horizontal */
 
     nav {
+
         display: flex;
 
         flex-direction: row;
@@ -617,7 +781,9 @@ body.dark-mode footer {
 
 
     nav a {
-        margin: 0 5px;
+
+        margin:
+            0 5px;
 
         font-size: 12px;
 
@@ -626,13 +792,17 @@ body.dark-mode footer {
 
 
     nav a.active {
+
         padding-bottom: 3px;
 
         border-bottom-width: 2px;
     }
 
 
+    /* About */
+
     .about {
+
         width:
             calc(100% - 30px);
 
@@ -645,6 +815,7 @@ body.dark-mode footer {
 
 
     .about p {
+
         text-align: left;
 
         font-size: 15px;
@@ -653,26 +824,35 @@ body.dark-mode footer {
     }
 
 
+    /* Skills */
+
     .skills {
+
         margin-top: 45px;
 
-        padding: 0 15px;
+        padding:
+            0 15px;
     }
 
 
     .skill-container {
+
         gap: 15px;
     }
 
 
     .skill-card {
+
         width: 100%;
 
         padding: 18px;
     }
 
 
+    /* Contact */
+
     .contact {
+
         width:
             calc(100% - 30px);
 
@@ -686,7 +866,10 @@ body.dark-mode footer {
     }
 
 
+    /* Projects */
+
     .projects {
+
         width:
             calc(100% - 30px);
 
@@ -697,16 +880,31 @@ body.dark-mode footer {
             40px 20px;
 
         border-radius: 20px;
+    }
+
+
+    /* Project cards
+       berubah menjadi
+       satu kolom */
+
+    .project-container {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 20px;
     }
 
 
     .project-card {
+
         padding:
             25px 20px;
     }
 
 
-    .project-card a {
+    .project-card .btn {
+
         width: 100%;
 
         padding:
@@ -714,19 +912,26 @@ body.dark-mode footer {
     }
 
 
+    /* Back Button */
+
     .back-btn {
+
         margin:
             20px 15px;
     }
 
 
+    /* Footer */
+
     footer {
+
         padding:
             25px 15px;
     }
 
 
     footer p {
+
         font-size: 14px;
 
         line-height: 1.6;
